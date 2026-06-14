@@ -1,7 +1,4 @@
-Based on the video **"Build & Deploy Full Stack E-commerce Website | Redux | MERN Stack"** (MongoDB, Express, React, Node.js, Redux), here's a professional README you can use for your GitHub repository. ([YouTube][1])
-
 # 🛒 Full Stack E-Commerce Website (MERN + Redux)
-
 A fully functional E-Commerce web application built using the MERN Stack (MongoDB, Express.js, React.js, Node.js) and Redux for state management.
 
 ## 🚀 Features
