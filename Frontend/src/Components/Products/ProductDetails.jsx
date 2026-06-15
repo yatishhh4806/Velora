@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { toast } from 'sonner'
+import ProductGrid from "./ProductGrid";
 const selectedProduct = {
   name: "Stylish Jacket",
   price: 120,
@@ -20,6 +21,33 @@ const selectedProduct = {
     },
   ],
 };
+
+const similarProducts = [
+  {
+    _id: 1,
+    name: 'Product 1',
+    price: 100,
+    images: [{url: 'https://picsum.photos/500/500?random=3'}]
+  },
+  {
+    _id: 2,
+    name: 'Product 2',
+    price: 100,
+    images: [{url: 'https://picsum.photos/500/500?random=4'}]
+  },
+  {
+    _id: 3,
+    name: 'Product 3',
+    price: 100,
+    images: [{url: 'https://picsum.photos/500/500?random=5'}]
+  },
+  {
+    _id: 4,
+    name: 'Product 4',
+    price: 100,
+    images: [{url: 'https://picsum.photos/500/500?random=6'}]
+  }
+]
 
 const ProductDetails = () => {
 
@@ -45,8 +73,18 @@ const ProductDetails = () => {
 
   function handleAddToCart(){
     if(!selectedSize || !selectedColor){
-      toast.error("Please select a size and a color before adding to cart")
+      toast.error("Please select a size and a color before adding to cart", {
+        duration: 1000 
+      })
+      return
     }
+    setisButtonDisabled(true)
+    setTimeout(() => {
+      toast.success('Product added to the cart!', {
+        duration: 1000,
+      })
+      setisButtonDisabled(false)
+    }, 500);
   }
 
 
@@ -173,11 +211,17 @@ const ProductDetails = () => {
             </div>
 
             {/* Add to Cart */}
-            <button onClick={handleAddToCart} className="bg-black text-white px-6 py-2 rounded hover:bg-gray-800">
-              Add to Cart
+            <button onClick={handleAddToCart} disabled={isButtonDisabled} className={`bg-black text-white px-6 py-2 rounded w-full mb-4${isButtonDisabled ? 'cursor-not-allowed opacity-50' : 'hover:bg-gray-900' }`}>
+              {isButtonDisabled ? 'Adding...' : 'ADD TO CART'}
             </button>
           </div>
 
+        </div>
+        <div className="mt-20">
+          <div>
+            <h2 className="text-2xl text-center font-medium mb-4">You May Also Like</h2>
+            <ProductGrid products={similarProducts}></ProductGrid>
+          </div>
         </div>
       </div>
     </div>

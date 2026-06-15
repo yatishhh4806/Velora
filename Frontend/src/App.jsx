@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import UserLayout from './Components/Layout/UserLayout'
 import Home from './Pages/Home'
-import Toaster from 'sonner'
+import { Toaster, toast } from "sonner";
 
 
 const App = () => {
