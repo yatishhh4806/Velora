@@ -1,7 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import UserLayout from './Components/Layout/UserLayout'
-import Home from './Pages/Home'
 import { Toaster, toast } from "sonner";
+import Home from './Pages/Home'
+import Login from './Pages/Login'
+import Register from './Pages/Register';
 
 
 const App = () => {
@@ -12,6 +14,8 @@ const App = () => {
         <Route path ='/' element ={<UserLayout></UserLayout>}>
           {/* {User Layout} */}
           <Route index element={<Home></Home>}></Route>   {/* Default child route of / */}
+          <Route path= 'login' element={<Login></Login>}></Route>
+          <Route path= 'register' element={<Register></Register>}></Route>
         </Route>
         <Route>
           {/* {Admin Layout} */}
