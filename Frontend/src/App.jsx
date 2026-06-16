@@ -4,6 +4,7 @@ import { Toaster, toast } from "sonner";
 import Home from './Pages/Home'
 import Login from './Pages/Login'
 import Register from './Pages/Register';
+import Profile from './Pages/Profile';
 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
           <Route index element={<Home></Home>}></Route>   {/* Default child route of / */}
           <Route path= 'login' element={<Login></Login>}></Route>
           <Route path= 'register' element={<Register></Register>}></Route>
+          <Route path= 'profile' element={<Profile></Profile>}></Route>
         </Route>
         <Route>
           {/* {Admin Layout} */}
