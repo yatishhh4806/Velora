@@ -5,6 +5,7 @@ import Home from './Pages/Home'
 import Login from './Pages/Login'
 import Register from './Pages/Register';
 import Profile from './Pages/Profile';
+import CollectionPage from './Pages/CollectionPage';
 
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
           <Route path= 'login' element={<Login></Login>}></Route>
           <Route path= 'register' element={<Register></Register>}></Route>
           <Route path= 'profile' element={<Profile></Profile>}></Route>
+          <Route path= 'collections/:collection' element={<CollectionPage></CollectionPage>}></Route>
         </Route>
         <Route>
           {/* {Admin Layout} */}
