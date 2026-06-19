@@ -6,6 +6,8 @@ import Login from './Pages/Login'
 import Register from './Pages/Register';
 import Profile from './Pages/Profile';
 import CollectionPage from './Pages/CollectionPage';
+import ProductDetails from './Components/Products/ProductDetails';
+import Checkout from './Components/Cart/Checkout';
 
 
 const App = () => {
@@ -20,6 +22,8 @@ const App = () => {
           <Route path= 'register' element={<Register></Register>}></Route>
           <Route path= 'profile' element={<Profile></Profile>}></Route>
           <Route path= 'collections/:collection' element={<CollectionPage></CollectionPage>}></Route>
+          <Route path= 'product/:id' element={<ProductDetails></ProductDetails>}></Route>
+          <Route path= 'checkout' element={<Checkout></Checkout>}></Route>
         </Route>
         <Route>
           {/* {Admin Layout} */}
