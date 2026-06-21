@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const MyOrderPage = () => {
   const [orders, setOrders] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setTimeout(() => {
@@ -44,6 +46,10 @@ const MyOrderPage = () => {
     }, 1000);
   }, []);
 
+  const handleRowClick = (orderId) => {
+    navigate(`/order/${orderId}`);
+  };
+
   return (
     <div className="max-w-7xl mx-auto p-4 sm:p-6">
       <h2 className="text-2xl font-bold mb-6">My Orders</h2>
@@ -56,7 +62,7 @@ const MyOrderPage = () => {
               <th className="px-4 py-3">Order ID</th>
               <th className="px-4 py-3">Created</th>
               <th className="px-4 py-3">Shipping Address</th>
-              <th className="px-4 py-3">Item</th>
+              <th className="px-4 py-3">Items</th>
               <th className="px-4 py-3">Price</th>
               <th className="px-4 py-3">Status</th>
             </tr>
@@ -67,7 +73,8 @@ const MyOrderPage = () => {
               orders.map((order) => (
                 <tr
                   key={order._id}
-                  className="border-b border-gray-200 hover:bg-gray-50 transition"
+                  onClick={() => handleRowClick(order._id)}
+                  className="border-b border-gray-200 hover:bg-gray-50 transition cursor-pointer"
                 >
                   <td className="px-4 py-4">
                     <img
@@ -90,17 +97,21 @@ const MyOrderPage = () => {
                     {order.shipAddress.city}, {order.shipAddress.country}
                   </td>
 
-                  <td className="px-4 py-4">{order.orderItems.length}</td>
+                  <td className="px-4 py-4">
+                    {order.orderItems.length}
+                  </td>
 
-                  <td className="px-4 py-4">${order.totalPrice}</td>
+                  <td className="px-4 py-4">
+                    ${order.totalPrice}
+                  </td>
 
                   <td className="px-4 py-4">
                     <span
-                      className={`px-2 py-1 rounded-md text-sm font-medium ${
+                      className={`px-2 py-1 rounded-full text-xs sm:text-sm font-medium ${
                         order.isPaid
                           ? "bg-green-100 text-green-700"
                           : "bg-red-100 text-red-700"
-                      }px-2 py-1 rounded-full text-xs sm:text-sm font-medium`}
+                      }`}
                     >
                       {order.isPaid ? "Paid" : "Pending"}
                     </span>
@@ -109,7 +120,10 @@ const MyOrderPage = () => {
               ))
             ) : (
               <tr>
-                <td colSpan={7} className="py-6 text-center text-gray-500">
+                <td
+                  colSpan={7}
+                  className="py-6 text-center text-gray-500"
+                >
                   You Have No Orders!
                 </td>
               </tr>

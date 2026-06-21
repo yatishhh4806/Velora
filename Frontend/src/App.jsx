@@ -9,6 +9,8 @@ import CollectionPage from './Pages/CollectionPage';
 import ProductDetails from './Components/Products/ProductDetails';
 import Checkout from './Components/Cart/Checkout';
 import OrderConfirmationPage from './Pages/OrderConfirmationPage';
+import OrderDetailsPage from './Pages/OrderDetailsPage';
+import MyOrderPage from './Pages/MyOrderPage';
 
 
 const App = () => {
@@ -26,6 +28,8 @@ const App = () => {
           <Route path= 'product/:id' element={<ProductDetails></ProductDetails>}></Route>
           <Route path= 'checkout' element={<Checkout></Checkout>}></Route>
           <Route path= 'order-confirmation' element={<OrderConfirmationPage></OrderConfirmationPage>}></Route>
+          <Route path= 'order/:id' element={<OrderDetailsPage></OrderDetailsPage>}></Route>
+          <Route path= 'my-orders' element={<MyOrderPage></MyOrderPage>}></Route>
         </Route>
         <Route>
           {/* {Admin Layout} */}
