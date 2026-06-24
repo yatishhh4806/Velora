@@ -30,22 +30,23 @@ const Navbar = () => {
 
             {/* {Center - Nav Links} */}
             <div className='hidden md:flex space-x-6'>
-                <Link to='/collections/all' className= 'text-gray-700 hover:text-black text-sm font-medium uppercase'>
+                <Link to='/collections/men' className= 'text-gray-700 hover:text-black text-sm font-medium uppercase'>
                     Men
                 </Link>
-                <Link to='#' className= 'text-gray-700 hover:text-black text-sm font-medium uppercase'>
+                <Link to='/collections/women' className= 'text-gray-700 hover:text-black text-sm font-medium uppercase'>
                     Women
                 </Link>
-                <Link to='#' className= 'text-gray-700 hover:text-black text-sm font-medium uppercase'>
-                    Top Were
+                <Link to='/collections/top-wear' className= 'text-gray-700 hover:text-black text-sm font-medium uppercase'>
+                    Top Wear
                 </Link>
-                <Link to='#' className= 'text-gray-700 hover:text-black text-sm font-medium uppercase'>
+                <Link to='/collections/bottom-wear' className= 'text-gray-700 hover:text-black text-sm font-medium uppercase'>
                     Bottom Wear
                 </Link>
             </div>
 
             {/* {Right - Icon} */}
             <div className='flex items-center space-x-4'>
+                <Link to='/admin' className='block bg-black px-2 rounded text-sm text-white'>Admin</Link>
                 <Link to='/profile' className='hover:text-black'>
                     <AiOutlineUser className='h-6 w-6 text-gray-700'/>
                 </Link>
